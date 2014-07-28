@@ -10,14 +10,29 @@ module.exports = function(grunt) {
  		}
    	}
    },
+   jade: {
+     compile: {
+         files: [{
+                    src: "**/*.jade",
+                    dest: "html/",  // output jade files to an html folder
+                    ext: ".html",
+                    expand: true,  
+                    cwd: "jade/" // grab jade files from a folder called jade
+                 }]
+     }
+   },
    watch: {
    	css: {
    		files: ['css/*.scss'],
    		tasks: ['sass', 'autoprefixer']
    	},
-   	options: {
-   		livereload: true
-   	}
+      jade: {
+               files: ['jade/*.jade'], // watch jade files in jade folder
+               tasks: ['jade']
+      },
+      options: {
+         livereload: true
+      }
    },
    autoprefixer: {
    	options: {
@@ -38,10 +53,11 @@ module.exports = function(grunt) {
  });
 
 grunt.loadNpmTasks('grunt-contrib-sass');
+grunt.loadNpmTasks('grunt-contrib-jade');
 grunt.loadNpmTasks('grunt-contrib-watch');
 grunt.loadNpmTasks('grunt-autoprefixer');
 grunt.loadNpmTasks('grunt-contrib-connect');
 
  // Default task(s).
- grunt.registerTask('default', ['connect','watch']); //name in square bracket MUST match name of desired task as above
+ grunt.registerTask('default', ['sass','jade','connect','watch']); //name in square bracket MUST match name of desired task as above
 };
