@@ -14,13 +14,26 @@ audio:not([controls]) {
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%; }
-
+  -ms-text-size-adjust: 100%; 
+  background-color: #52000A;
+}
+  
+   p, h1, h2, h3, h4, h5, h6, section, form, input, div {
+	  color: lightgrey;
+	  text-decoration: none;
+  }
+  a {
+	  color: lightgrey;
+	  text-decoration: none;
+  }
 a:focus {
-  outline: thin dotted; }
+  outline: thin dotted;
+color: white;  }
 
 a:active, a:hover {
-  outline: 0; }
+	outline: 0;
+	color: gold;
+	text-decoration: none;  }
 
 h1 {
   font-size: 2em; }
